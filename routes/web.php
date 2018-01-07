@@ -178,6 +178,9 @@ Route::group(['prefix' => 'perawat', 'middleware' => ['auth', 'role:registrasi']
     //obat
     Route::resource('perawat-obat', 'ObatsController');
 
+    //diagnosis
+    Route::resource('diagnosis', 'DiagnosisController');
+
 
 });
 

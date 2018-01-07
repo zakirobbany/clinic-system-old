@@ -78,6 +78,7 @@
                 </ul>
             </li>
             <li><a href="/perawat/setkpi"><i class="fa fa-tachometer"></i>System Variable</a></li>
+            <li><a href="{{ route('diagnosis.index') }}"><i class="fa fa-book"></i>Diagnosa</a></li>
         </ul>
     </div>
     @endrole
