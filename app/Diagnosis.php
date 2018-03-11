@@ -14,4 +14,9 @@ class Diagnosis extends Model
     {
         return $this->belongsTo(DiagnosisType::class);
     }
+
+    public function rekamMedis()
+    {
+        return $this->hasMany('App\RekamMedisDiagnosis')->with('RekamMedis');
+    }
 }
