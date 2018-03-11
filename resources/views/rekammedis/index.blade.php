@@ -70,27 +70,33 @@
                                             {{ $no++ }}
                                         </td>
                                         <td>
-                                            {{ $rekam->rekamMedis->pasienPoli->created_at }}
+                                            {{ $rekam->pasienPoli->created_at }}
                                         </td>
                                         <td>
-                                            {{ $rekam->rekamMedis->pasienPoli->pasien->nama }}
+                                            {{ $rekam->pasienPoli->pasien->nama }}
                                         </td>
                                         <td>
-                                            {{ $rekam->rekamMedis->pasienPoli->dokter->name }}
+                                            {{ $rekam->pasienPoli->dokter->name }}
                                         </td>
                                         <td>
-                                            {{ $rekam->rekamMedis->pasienPoli->poli->nama_poli }}
+                                            {{ $rekam->pasienPoli->poli->nama_poli }}
                                         <td>
-                                            {{ $rekam->rekamMedis->diagnosa }}
+                                            @foreach($rekam->diagnoses_attribute as $diagnosis)
+                                                {{ $diagnosis->name }}<br>
+                                            @endforeach
                                         </td>
                                         <td>
-                                            {{ $rekam->rekamMedis->terapi }}
+                                            {{ $rekam->terapi }}
                                         </td>
                                         <td>
-                                            {{ $rekam->obat->nama_obat }}
+                                            @foreach($rekam->medicine_attribute as $medicine)
+                                                {{ $medicine->nama_obat }}<br>
+                                            @endforeach
                                         </td>
                                         <td>
-                                            {{ $rekam->jumlah }}
+                                            @foreach($rekam->total_medicine_attribute as $total)
+                                                {{ $total->jumlah }}<br>
+                                            @endforeach
                                         </td>
                                         @role('dokter')
                                         <td>
