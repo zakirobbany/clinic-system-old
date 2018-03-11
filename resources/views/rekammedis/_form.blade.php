@@ -7,11 +7,27 @@
             {!! $errors->first('pasien_poli_id', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
-    <div class="form-group{{$errors->has('diagnosa') ? 'has error' : '' }}">
-        {!! Form::label('diagnosa', 'Diagnosa', ['class'=>'col-md-2 control-label']) !!}
+
+    <div class="form-group{{ $errors->has('diagnoses') ? 'has eroor' : '' }}">
+        {!! Form::label('diagnoses', 'Diagnosa', ['class' => 'col-md-2 control-label']) !!}
         <div class="col-md-5">
-            {!! Form::text('diagnosa', null, ['class'=>'form-control']) !!}
-            {!! $errors->first('diagnosa', '<p class="help-block">:message</p>') !!}
+            {!! Form::select('diagnoses[]', [
+            'Non Spesialistik' => \App\Diagnosis::where('diagnosis_type_id', '=', 1)->pluck('name', 'id')->toArray(),
+            'Spesialistik' => \App\Diagnosis::where('diagnosis_type_id', '=', 2)->pluck('name', 'id')->toArray(),
+            ],
+            null, ['class'=>'select2 form-control', 'multiple' => 'multiple', 'name' => 'diagnoses[]']) !!}
+            {!! $errors->first('diagnoses', '<p class="help-block">:message</p>') !!}
+        </div>
+    </div>
+
+    <div class="form-group{{ $errors->has('dokter_id') ? 'has-error' : '' }}">
+        {!! Form::label('dokter_id', 'Dokter', ['class'=>'col-md-2 control-label']) !!}
+        <div class="col-md-5">
+            {!! Form::select('dokter_id',[
+                'Umum' => App\Dokter::where('spesialis_id', '=', 1)->pluck('name', 'id')->toArray(),
+                'Gigi' => App\Dokter::where('spesialis_id', '=', 2)->pluck('name', 'id')->toArray()],
+            null, ['class'=>'select2_single form-control', 'placeholder'=>'Pilih Dokter']) !!}
+            {!! $errors->first('dokter_id', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
 
