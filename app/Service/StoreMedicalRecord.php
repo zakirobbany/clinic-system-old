@@ -3,7 +3,10 @@
 namespace App\Service;
 
 use App\RekamMedis;
+use App\RekamMedisDiagnosis;
+use App\RekamMedisObat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class StoreMedicalRecord
 {
