@@ -19,8 +19,14 @@ class KunjunganPoliController extends Controller
     public function index()
     {
         $now = Carbon::now();
-        $cd = $now->day;
-        $kunjungan = PasienPoli::with('pasien', 'poli', 'dokter', 'rekamMedis')->whereDay('created_at', '=', $cd)->orderBy('created_at', 'desc')->get();
+        $day = $now->day;
+        $month = $now->month;
+        $kunjungan = PasienPoli::with('pasien', 'poli', 'dokter', 'rekamMedis')
+            ->whereDay('created_at', '=', $day)
+            ->whereMonth('created_at', '=', $month)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return view('kunjungan.index', compact('kunjungan'));
     }
 
