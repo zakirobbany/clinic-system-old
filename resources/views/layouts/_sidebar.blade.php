@@ -68,8 +68,8 @@
                     <li><a href="/perawat/perawat-kunjunganprolanis">Kunjungan Prolanis</a></li>
                 </ul>
             </li>
-            <li><a href="/perawat/perawat-rujukan"><i class="fa fa-male"></i>Rujukan</a></li>
-            <li><a href="/perawat/perawat-rekammedis"><i class="fa fa-folder-open-o"></i>Rekam Medis</a></li>
+            <li><a href="/perawat/perawat-rujukan"><i class="fa fa-ambulance"></i>Rujukan</a></li>
+            <li><a href="/perawat/perawat-rekammedis"><i class="fa fa-sticky-note"></i>Rekam Medis</a></li>
             <li><a href="/perawat/perawat-prolanis"><i class="fa fa-child"></i>Prolanis</a></li>
             <li><a><i class="fa fa-plus-circle"></i>Obat <span class="fa fa-chevron-down"></span> </a>
                 <ul class="nav child_menu">
@@ -77,7 +77,7 @@
                     <li><a href="/perawat/perawat-rekapobat">Rekap Obat</a></li>
                 </ul>
             </li>
-            <li><a href="/perawat/setkpi"><i class="fa fa-tachometer"></i>System Variable</a></li>
+            <li><a href="/perawat/setkpi"><i class="fa fa-cogs"></i>System Variable</a></li>
             <li><a href="{{ route('diagnosis.index') }}"><i class="fa fa-book"></i>Diagnosa</a></li>
         </ul>
     </div>
