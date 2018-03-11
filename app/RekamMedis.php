@@ -21,4 +21,25 @@ class RekamMedis extends Model
     public function obat(){
         return $this->hasMany('App\RekamMedisObat')->with('Obat');
     }
+
+    public function diagnoses()
+    {
+        return $this->hasMany('App\RekamMedisDiagnosis')->with('Diagnosis');
+    }
+
+    public function getDiagnosesAttributeAttribute()
+    {
+        return $this->diagnoses->pluck('diagnosis');
+    }
+
+    public function getMedicineAttributeAttribute()
+    {
+        return $this->obat->pluck('obat');
+    }
+
+    public function getTotalMedicineAttributeAttribute()
+    {
+        return $this->obat;
+    }
+
 }
