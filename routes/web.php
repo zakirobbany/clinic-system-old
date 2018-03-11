@@ -144,7 +144,7 @@ Route::group(['prefix' => 'perawat', 'middleware' => ['auth', 'role:registrasi']
     Route::resource('perawat-rekammedis', 'RekamMedisController');
     Route::get('perawat-rekammedisbulanan', ['uses' => 'RekamMedisController@bulananIndex', 'as' => 'perawat.rekammedis.bulanan.index']);
     Route::get('perawat-rekammedis/{id}/create', ['uses' => 'RekamMedisController@create', 'as' => 'perawat.rekammedis.create']);
-    Route::post('perawat-rekammedis/{id}', 'RekamMedisController@perawatStore');
+    Route::post('perawat-rekammedis/store', 'RekamMedisController@perawatStore')->name('perawat-rekammedis.store');
     Route::patch('/perawat-rekammedis/{id}/update', ['uses'=>'RekamMedisController@perawatUpdate', 'as' => 'perawat.rekammedis.update']);
     Route::delete('perawat-rekammedis/{id}/destroy', ['uses'=>'RekamMedisController@perawatDestroy', 'as' => 'perawat.rekammedis.destroy']);
 
@@ -229,4 +229,10 @@ Route::group(['prefix'=> 'dokter', 'middleware'=>['auth', 'role:dokter']], funct
 Auth::routes();
 
 Route::get('home', 'HomeController@index');
+
+Route::get('medical-record', function (){
+   $medicalRecord = new \App\Service\MedicalRecord();
+
+   return $medicalRecord->medicalRecord();
+});
 
