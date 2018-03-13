@@ -74,7 +74,9 @@
                                             {{ $rujukan->rujukan }}
                                         </td>
                                         <td>
-                                            {{ $rujukan->rekamMedis->diagnosa }}
+                                            @foreach($rujukan->rekamMedis->diagnoses as $diagnosis)
+                                                {{ $diagnosis->diagnosis->name }} <br/>
+                                            @endforeach
                                         </td>
                                         <td>
                                             {{ $rujukan->created_at }}
