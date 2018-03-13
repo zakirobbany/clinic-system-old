@@ -236,3 +236,12 @@ Route::get('medical-record', function (){
    return $medicalRecord->medicalRecord();
 });
 
+Route::get('dashboard', function () {
+   /*$visitors = new \App\Service\Dashboard\Visitors();
+
+   return $visitors->thisMonthBPJSVisitors();*/
+   $home = new \App\Http\Controllers\HomeController();
+   return $home->index();
+
+});
+

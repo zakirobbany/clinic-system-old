@@ -2,23 +2,23 @@
     <h2>JUMLAH PASIEN</h2>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-user"></i> Pasien</span>
-        <div class="count">{{ $totalPasien }}</div>
+        <div class="count">{{ $totalPatients }}</div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-user"></i> Pasien Umum</span>
-        <div class="count">{{ $pasienUmum }}</div>
+        <div class="count">{{ $totalGeneralPatients }}</div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-user"></i> Pasien BPJS</span>
-        <div class="count">{{ $pasienBPJS }}</div>
+        <div class="count">{{ $totalBPJSPatients }}</div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-user"></i> Pasien Kartu Hijau</span>
-        <div class="count">{{ $pasienKartuHijau }}</div>
+        <div class="count">{{ $totalGreenPatients }}</div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-user"></i> Pasien Prolanis</span>
-        <div class="count">{{ $pasienProlanis }}</div>
+        <div class="count">{{ $totalProlanisPatients }}</div>
     </div>
 </div>
 
@@ -28,19 +28,19 @@
     <H2>JUMLAH KUNJUNGAN HARI INI</H2>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-group"></i> Total Kunjungan</span>
-        <div class="count">{{ $harian }}</div>
+        <div class="count">{{ $todayVisitors }}</div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-group"></i> Total Kunjungan Umum</span>
-        <div class="count">{{ $harianUmum }}</div>
+        <div class="count">{{ $todayGeneralVisitors }}</div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-group"></i> Kunjungan Kontak BPJS</span>
-        <div class="count">{{ $harianBpjs }}</div>
+        <div class="count">{{ $todayBPJSVisitors }}</div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-group"></i> Total Kunjungan Kartu Hijau</span>
-        <div class="count">{{ $harianHijau }}</div>
+        <div class="count">{{ $todayGreenVisitors }}</div>
     </div>
 </div>
 
@@ -50,23 +50,23 @@
     <h2>JUMLAH KUNJUNGAN BULAN INI</h2>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-group"></i> Total Kunjungan</span>
-        <div class="count {{ $totalStatus }}">{{ $totalKunjungan }}</div>
+        <div class="count {{ $totalStatus }}">{{ $monthVisitors }}</div>
         <span class="count_bottom"><i class="{{ $totalStatus }}">{{ number_format($totalPercentage, 2) }}% </i> Dari Seluruh Pasien</span>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-group"></i>  Kunjungan Umum</span>
-        <div class="count {{ $umumStatus }}">{{ $kunjunganUmum }}</div>
-        <span class="count_bottom"><i class="{{ $umumStatus }}">{{ number_format($umumPercentage, 2) }}% </i> Dari Pasien Umum</span>
+        <div class="count {{ $generalStatus }}">{{ $monthGeneralVisitors }}</div>
+        <span class="count_bottom"><i class="{{ $generalStatus }}">{{ number_format($generalPercentage, 2) }}% </i> Dari Pasien Umum</span>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-group"></i>  Kontak BPJS</span>
-        <div class="count {{ $bpjsStatus }}">{{ $kunjunganBpjs }}</div>
-        <span class="count_bottom"><i class="{{ $bpjsStatus }}">{{ number_format($bpjsPercentage, 2) }}% </i> Dari Seluruh BPJS</span>
+        <div class="count {{ $BPJSStatus }}">{{ $monthBPJSVisitors }}</div>
+        <span class="count_bottom"><i class="{{ $BPJSStatus }}">{{ number_format($BPJSPercentage, 2) }}% </i> Dari Seluruh BPJS</span>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-group"></i>  Kunjungan Kartu Hijau</span>
-        <div class="count">{{ $kunjunganHijau }}</div>
-        <span class="count_bottom">{{ number_format($hijauPercentage, 2) }}% </> Dari Pasien Kartu Hijau</span>
+        <div class="count green">{{ $monthGreenVisitors }}</div>
+        <span class="count_bottom"><i class="green">{{ number_format($greenPercentage, 2) }}% </i> Dari Seluruh Pasien Hijau</span>
     </div>
 
 </div>
@@ -76,7 +76,7 @@
     <h2>PROLANIS</h2>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="width: 208px">
         <span class="count_top"><i class="fa fa-group"></i>  Kehadiran Prolanis</span>
-        <div class="count {{ $prolanisStatus }}">{{ $kunjunganProlanis }}</div>
+        <div class="count {{ $prolanisStatus }}">{{ $monthProlanisVisitors }}</div>
         <span class="count_bottom"><i class="{{ $prolanisStatus }}">{{ number_format($prolanisPercentage, 2) }}% </i> Dari Pasien Prolanis</span>
     </div>
 </div>
