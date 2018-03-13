@@ -43,6 +43,15 @@ class RujukanController extends Controller
     public function create($id)
     {
         $kunjungan = PasienPoli::findOrFail($id);
+        if (!$kunjungan->rekamMedis) {
+            Session::flash("flash_notification", [
+                "level" => "danger",
+                "message" => "Kunjungan Belum Memiliki Rekam Medis"
+            ]);
+
+            return redirect()->route('perawat-kunjunganPoli.index');
+        }
+
         return view('rujukan.create', compact('kunjungan'));
         /*
         $rekammedis = RekamMedis::where('pasien_poli_id', '=', $id)->get();
